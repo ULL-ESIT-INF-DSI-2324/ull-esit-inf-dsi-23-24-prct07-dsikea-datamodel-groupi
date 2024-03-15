@@ -1,0 +1,10 @@
+{
+  "entryPoints": [
+    "./src/index.ts",
+    "./src/canal.ts",
+    "./src/noticia.ts",
+    "./src/observer.ts",
+    "./src/suscriptor.ts"
+  ],
+  "out": "./docs"
+}
