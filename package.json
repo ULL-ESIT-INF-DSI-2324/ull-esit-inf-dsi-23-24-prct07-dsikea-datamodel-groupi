@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "coverage": "c8 npm test && c8 report --reporter=lcov",
-    "start": "tsc-watch --onSuccess \"node dist/ejercicio-1.js\"",
+    "start": "tsc-watch --onSuccess \"node dist/index.js\"",
     "doc": "typedoc",
     "test": "mocha"
   },
@@ -15,6 +15,8 @@
   "license": "ISC",
   "devDependencies": {
     "@types/chai": "^4.3.12",
+    "@types/inquirer": "^9.0.7",
+    "@types/lowdb": "^1.0.15",
     "@types/mocha": "^10.0.6",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
@@ -29,5 +31,9 @@
     "tsc-watch": "^6.0.4",
     "typedoc": "^0.25.12",
     "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "inquirer": "^7.3.3",
+    "lowdb": "^1.0.0"
   }
 }
