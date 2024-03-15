@@ -1,4 +1,3 @@
-enum ALGORITHM_TYPE {Alfabeticamente, PrecioAscendente, PrecioDescendente};
 
 export class Dimensiones{
   constructor(
@@ -25,8 +24,6 @@ export class Dimensiones{
 }
 
 
-
-
 export interface ReferenciaMueble {
   IDUnico: number,
   Nombre : string,
@@ -37,44 +34,43 @@ export interface ReferenciaMueble {
 }
 
 
+enum ALGORITHM_TYPE {ALFABETO, PRECIOASCENDETE, PRECIODESCENDENTE};
+
 /**
  * This is an example of context class where different algorithms are available
  */
-class Solver {
-  constructor(private data: number[], private algorithmType: ALGORITHM_TYPE) {
+class Solver extends Muebles {
+  constructor(private Muebles: ReferenciaMueble[], private algorithmType: ALGORITHM_TYPE) {
+    
   }
 
-  /**
-   * Any type of algorithm that operates over data
-   */
-  firstAlgorithm() {
-    console.log(`First algorithm applied to: ${this.data}`);
+
+  
+  Alfabeticamente() : ReferenciaMueble[] {
+    return this.Muebles.slice().sort();
   }
 
-  /**
-   * Any type of algorithm that operates over data
-   */
-  secondAlgorithm() {
-    console.log(`Second algorithm applied to: ${this.data}`);
+ 
+  PrecioAscendente() : ReferenciaMueble[] {
+    return this.Muebles.slice().sort();
   }
 
-  /**
-   * Any type of algorithm that operates over data
-   */
-  thirdAlgorithm() {
-    console.log(`Third algorithm applied to: ${this.data}`);
+
+  
+  PrecioDescendente() {
+    return this.Muebles.slice().sort();
   }
 
   logic() {
     switch (this.algorithmType) {
-      case ALGORITHM_TYPE.P:
-        this.firstAlgorithm();
+      case ALGORITHM_TYPE.ALFABETO:
+        this.Alfabeticamente();
         break;
-      case ALGORITHM_TYPE.SECOND:
-        this.secondAlgorithm();
+      case ALGORITHM_TYPE.PRECIOASCENDETE:
+        this.PrecioAscendente();
         break;
-      case ALGORITHM_TYPE.THIRD:
-        this.thirdAlgorithm();
+      case ALGORITHM_TYPE.PRECIODESCENDENTE:
+        this.PrecioDescendente();
         break;
       default:
         throw new Error('No valid algorithm');
@@ -82,31 +78,35 @@ class Solver {
   }
 }
 
-export class Muebles {
-  constructor(private muebles : ReferenciaMueble[], private algorithmType: ALGORITHM_TYPE){}
 
-  BuscarPorNombre (nombre: string) : ReferenciaMueble[] {
-    const resultado : ReferenciaMueble[] = this.muebles.filter(item => item.Nombre === nombre);
-    resultado.slice().sort()
-    return resultado;
+export class Muebles{
+  constructor(private muebles : ReferenciaMueble[]){}
+
+  BuscarPorNombre (nombre: string, algorithm :ALGORITHM_TYPE.ALFABETO) : ReferenciaMueble[] {
+    const resultado_aux : ReferenciaMueble[] = this.muebles.filter(item => item.Nombre === nombre);
+    const resolver =  new Solver(resultado_aux, algorithm);
+    resolver.logic();
+
+    return resolver;
   }  
+
+
+
 
 }
 
 
-export abstract class ReferenciaProveedoresClientes  {
-  constructor(private IdUnico: number, private Nombre: string, private Contacto: string, private Direccion: string) {
-    // Aquí va el código que se ejecutará cuando se crea una instancia
-  }
+export interface ReferenciaProveedoresClientes  {
   IdUnico: number;
   Nombre: string;
   Contacto: string;
   Direccion: string;
 }
+export interfc
 
 export class ProveedoresClientes implements ReferenciaProveedoresClientes{
-  constructor(private IdUnico: number, private Nombre: string, private Contacto: string, private Direccion: string){}
-  
+  constructor(public readonly IdUnico: number,public readonly Nombre: string, public readonly Contacto: string, public readonly Direccion: string){}
+
 }
 /*   addItem(newItem: T): void;
   getItem(index: number): T;
