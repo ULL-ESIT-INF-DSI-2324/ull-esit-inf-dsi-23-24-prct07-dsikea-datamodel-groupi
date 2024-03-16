@@ -1,0 +1,134 @@
+{
+  "muebles": [
+    {
+      "IDUnico": 1710621160023,
+      "Nombre": "mesa",
+      "Descripción": "mesa roja",
+      "Material": "plastico",
+      "Dimensiones": {
+        "ancho": 20,
+        "alto": 20,
+        "fondo": 29
+      },
+      "Precio": 45
+    }
+  ],
+  "proveedores": [
+    {
+      "IdUnico": 1710626227887,
+      "Nombre": "hugo",
+      "Contacto": "hugo@gmail.com",
+      "Direccion": "anchieta 45"
+    },
+    {
+      "IdUnico": 1710626252526,
+      "Nombre": "mateo",
+      "Contacto": "mateo@gmail.com",
+      "Direccion": "oslo 36"
+    },
+    {
+      "IdUnico": 1710626273295,
+      "Nombre": "martin",
+      "Contacto": "martin@gmail.com",
+      "Direccion": "berlin 38"
+    },
+    {
+      "IdUnico": 1710626306391,
+      "Nombre": "lucas",
+      "Contacto": "lucas@gmail.com",
+      "Direccion": "maderia 73"
+    },
+    {
+      "IdUnico": 1710626337391,
+      "Nombre": "leo",
+      "Contacto": "leo@gmail.com",
+      "Direccion": "teguise 38"
+    },
+    {
+      "IdUnico": 1710626356945,
+      "Nombre": "daniel",
+      "Contacto": "daniel@gmail.com",
+      "Direccion": "famR 37"
+    },
+    {
+      "IdUnico": 1710626379263,
+      "Nombre": "manuel",
+      "Contacto": "manuel@gmail.com",
+      "Direccion": "americas 36"
+    },
+    {
+      "IdUnico": 1710626412272,
+      "Nombre": "miguel",
+      "Contacto": "miguel@gmail.com",
+      "Direccion": "tias 37"
+    },
+    {
+      "IdUnico": 1710626426948,
+      "Nombre": "jose",
+      "Contacto": "josillo@gmail.com",
+      "Direccion": "arrecife 27"
+    }
+  ],
+  "clientes": [
+    {
+      "IdUnico": 1710625468734,
+      "Nombre": "Eva",
+      "Contacto": "eva@gmail.com",
+      "Direccion": "doramas 15"
+    },
+    {
+      "IdUnico": 1710625495325,
+      "Nombre": "ines",
+      "Contacto": "luis@gmail.com",
+      "Direccion": "doramas 15"
+    },
+    {
+      "IdUnico": 1710625508279,
+      "Nombre": "ines",
+      "Contacto": "ines@gmail.com",
+      "Direccion": "doramas 15"
+    },
+    {
+      "IdUnico": 1710625543652,
+      "Nombre": "angela",
+      "Contacto": "angela@gmail.com",
+      "Direccion": "ozuna 15"
+    },
+    {
+      "IdUnico": 1710625570072,
+      "Nombre": "alejandro",
+      "Contacto": "alejandro@gmail.com",
+      "Direccion": "agustin 29"
+    },
+    {
+      "IdUnico": 1710625596006,
+      "Nombre": "anuel",
+      "Contacto": "anuel@gmail.com",
+      "Direccion": "medellin 18"
+    },
+    {
+      "IdUnico": 1710625621130,
+      "Nombre": "quevedo",
+      "Contacto": "quevedo@gmail.com",
+      "Direccion": "lpgc 19"
+    },
+    {
+      "IdUnico": 1710625638464,
+      "Nombre": "ancor",
+      "Contacto": "ancor@gmail.com",
+      "Direccion": "matanza 27"
+    },
+    {
+      "IdUnico": 1710625672393,
+      "Nombre": "oscar",
+      "Contacto": "oscar@gmail.com",
+      "Direccion": "cuadri 27"
+    },
+    {
+      "IdUnico": 1710625747625,
+      "Nombre": "mariona",
+      "Contacto": "mariona@gmail.com",
+      "Direccion": "galileo 28"
+    }
+  ]
+}
