@@ -46,4 +46,21 @@ describe("Test para la clase Clientes", () => {
     // Comparamos solo las propiedades del nuevo cliente
     expect(cliente1.ObtenerClientes()).to.deep.include(clienteNuevo);
   });
+  it("Se debe poder eliminar un cliente", () => {
+    const cliente1 = new Clientes(cliente);
+    cliente1.RemoveCliente(2);
+    expect(cliente1.ObtenerClientes()).to.not.include(cliente[1]);
+  });
+  it("Se debe poder encontrar un cliente existente por su nombre", () => {
+    const cliente1 = new Clientes(cliente);
+    const clienteBuscado = cliente1.BuscarNombre("Cliente1");
+    expect(clienteBuscado).to.be.an("array").that.is.not.empty;
+    expect(clienteBuscado[0].Nombre).to.equal("Cliente1");
+  });
+  it("No se debe encontrar ningún cliente si el nombre no existe", () => {
+    const cliente1 = new Clientes(cliente);
+    const clienteBuscado = cliente1.BuscarNombre("ClienteX");
+    expect(clienteBuscado).to.be.an("array").that.is.empty;
+  });
+  
 });

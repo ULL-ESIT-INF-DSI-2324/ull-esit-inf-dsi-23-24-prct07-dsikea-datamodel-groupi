@@ -132,7 +132,7 @@ describe("Proveedores", () => {
 
   describe("Entradas no válidas o inesperadas", () => {
     // Prueba para buscar un proveedor por nombre inexistente
-    it("Debería devolver un array vacío al buscar un proveedor por nombre inexistente", () => {
+    it("Test 13 - BuscarNombre()  un array vacío al buscar un proveedor por nombre inexistente", () => {
       const nombreProveedorInexistente = "Proveedor inexistente";
       const resultado = proveedores.BuscarNombre(nombreProveedorInexistente);
       expect(resultado).to.be.an("array").that.is.empty;

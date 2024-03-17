@@ -161,10 +161,10 @@ describe("Muebles", () => {
     expect(resultado[0].Nombre).to.be.equal("Sofá cherlon");
   });
 
-  it("PrintMuebles() debería devolver una cadena con la información de los muebles", () => {
+  it("Test 15 - PrintMuebles() debería devolver una cadena con la información de los muebles", () => {
     const mueblesInfo = muebles.PrintMuebles(muebles.ObtenerMuebles());
     const final_esperado =
-      "ID Único: 6547654\nNombre: Sofá cherlon\nDescripción: Sofá cherlon para salones de estar pequeño diseño elegante en forma de manta de croche\nMaterial: lana\nDimensiones: Ancho: 30cm , Alto: 40cm , Fondo: 100cm \nPrecio: 300\n-----------------------------\nID Único: 4237498274\nNombre: Sofá patron\nDescripción: Sofá cherlon para salones de estar pequeño diseño elegante en forma de manta de croche\nMaterial: tela poliestireno\nDimensiones: Ancho: 30cm , Alto: 40cm , Fondo: 100cm \nPrecio: 350\n-----------------------------\nID Único: 487382\nNombre: Sofá cherlon\nDescripción: Sofá cherlon grande en forma de L, con asientos desplegable\nMaterial: Tela poliestileno\nDimensiones: Ancho: 200cm , Alto: 110cm , Fondo: 300cm \nPrecio: 300\n-----------------------------\n";
+      "ID Único: 6547654\nNombre: Sofá cherlon\nDescripción: Sofá cherlon para salones de estar pequeño diseño elegante en forma de manta de croche\nMaterial: lana\nDimensiones: Ancho: 30cm , Alto: 40cm , Fondo: 100cm \nPrecio: 300\n-----------------------------\nID Único: 4237498274\nNombre: Sofá patron\nDescripción: Sofá cherlon para salones de estar pequeño diseño elegante en forma de manta de croche\nMaterial: tela poliestireno\nDimensiones: Ancho: 30cm , Alto: 40cm , Fondo: 100cm \nPrecio: 350\n-----------------------------\nID Único: 1\nNombre: Armario empotrado\nDescripción: Almario emportrado de colores gris, blanco , morado\nMaterial: madera\nDimensiones: Ancho: 160cm , Alto: 200cm , Fondo: 60cm \nPrecio: 120\n-----------------------------\nID Único: 487382\nNombre: Sofá cherlon\nDescripción: Sofá cherlon grande en forma de L, con asientos desplegable\nMaterial: Tela poliestileno\nDimensiones: Ancho: 200cm , Alto: 110cm , Fondo: 300cm \nPrecio: 300\n-----------------------------\n";
     expect(mueblesInfo).to.be.equal(final_esperado);
   });
 });
