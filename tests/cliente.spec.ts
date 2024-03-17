@@ -62,5 +62,29 @@ describe("Test para la clase Clientes", () => {
     const clienteBuscado = cliente1.BuscarNombre("ClienteX");
     expect(clienteBuscado).to.be.an("array").that.is.empty;
   });
+  it("Se debe poder encontrar un cliente existente por su contacto", () => {
+    const cliente1 = new Clientes(cliente);
+    const clienteBuscado = cliente1.BuscarContacto("Contacto1");
+    expect(clienteBuscado).to.be.an("array").that.is.not.empty;
+    expect(clienteBuscado[0].Contacto).to.equal("Contacto1");
+  });
+
+  it("No se debe encontrar ningún cliente si el contacto no existe", () => {
+    const cliente1 = new Clientes(cliente);
+    const clienteBuscado = cliente1.BuscarContacto("ContactoX");
+    expect(clienteBuscado).to.be.an("array").that.is.empty;
+  });
   
+  it("Se debe poder encontrar un cliente existente por su dirección", () => {
+    const cliente1 = new Clientes(cliente);
+    const clienteBuscado = cliente1.BuscarDireccion("Direccion1");
+    expect(clienteBuscado).to.be.an("array").that.is.not.empty;
+    expect(clienteBuscado[0].Direccion).to.equal("Direccion1");
+  });
+
+  it("No se debe encontrar ningún cliente si la dirección no existe", () => {
+    const cliente1 = new Clientes(cliente);
+    const clienteBuscado = cliente1.BuscarDireccion("DireccionX");
+    expect(clienteBuscado).to.be.an("array").that.is.empty;
+  });
 });
