@@ -480,7 +480,7 @@ Al final del código, se llama a la función iniciarAplicacion() para comenzar l
 
 ### Dificultades 
 
-  Esta práctica ha sido dificíl, ya que nos costó mucho entender bien como aplicar el Inquirer y el Lowdb ya que era muy confuso y lioso de usar. Quitando esto realizar la práctica estuvo un poco enrevesada, ya que había cosas en la que nos estabamos de acuerdo, porque cada una lo hacía de una manera distinta, además de que el Live server a veces fallaba y era complicado intentar trabajar las tres juntas. 
+  Esta práctica ha sido dificíl, ya que nos costó mucho entender bien como aplicar el Inquirer y el Lowdb ya que era muy confuso y lioso de usar. Quitando esto realizar la práctica estuvo un poco enrevesada, ya que había cosas en la que no estabamos de acuerdo, porque cada una lo hacía o implementaba de una manera distinta, además de que el Live server a veces fallaba y era complicado intentar trabajar las tres juntas. 
   
 ### Bibliografía 
 - Libro: _Essential TypeScript: From Beginner to Pro_
