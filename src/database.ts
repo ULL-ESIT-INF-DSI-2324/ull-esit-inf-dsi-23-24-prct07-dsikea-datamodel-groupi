@@ -1,7 +1,15 @@
 import lowdb from 'lowdb';
 import FileSync from 'lowdb/adapters/FileSync.js';
 
-
+/**
+ * @brief Clase para la base de datos
+ * @param DB_FILE : string con el nombre del archivo de la base de datos
+ * @param adapter : FileSync<DatabaseSchema> con el adaptador para la base de datos
+ * @param db : lowdb con la instancia de la base de datos
+ * @param DatabaseSchema : interfaz para la estructura de la base de datos
+ * @param ReferenciaProveedoresClientes : interfaz para la referencia de un proveedor o cliente
+ * @param ReferenciaMueble : interfaz para la referencia de un mueble
+ */
 
 import { ReferenciaProveedoresClientes } from './proveedor.js';
 import { ReferenciaMueble } from './mueble.js';

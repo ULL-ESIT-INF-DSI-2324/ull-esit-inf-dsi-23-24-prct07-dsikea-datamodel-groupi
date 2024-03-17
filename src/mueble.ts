@@ -155,7 +155,7 @@ export class Muebles {
    * @param ordenamiento : es un enum ALGORITHM_TYPE
    * @return array de RefereciaMueble ordenados con el algoritmo que se requiere
    */
-  BusquarPorTipo(
+  BuscarPorTipo(
     tipo: string,
     ordenamiento: ALGORITHM_TYPE,
   ): ReferenciaMueble[] {
