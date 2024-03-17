@@ -13,8 +13,6 @@ Godgith John alu0101463858@ull.edu.es
 
 # Informe
 
-## Práctica 6 - Clases e interfaces genéricas. Principios SOLID
-
 ### Introducción
 
 En esta práctica grupal hay que aplicar todo lo aprendido relacionado con typescript y el diseño orientado a objetos.
