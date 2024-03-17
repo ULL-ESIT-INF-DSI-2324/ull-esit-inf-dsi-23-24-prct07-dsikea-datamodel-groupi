@@ -11,6 +11,42 @@
         "fondo": 29
       },
       "Precio": 45
+    },
+    {
+      "IDUnico": 1710706196062,
+      "Nombre": "caja de madera",
+      "Descripción": "caja para guardar cosas dentro",
+      "Material": "madera",
+      "Dimensiones": {
+        "ancho": 30,
+        "alto": 50,
+        "fondo": 30
+      },
+      "Precio": 15
+    },
+    {
+      "IDUnico": 1710706196234,
+      "Nombre": "mesa de crital",
+      "Descripción": "mesa hecha de crital",
+      "Material": "cristal",
+      "Dimensiones": {
+        "ancho": 90,
+        "alto": 40,
+        "fondo": 20
+      },
+      "Precio": 54
+    },
+    {
+      "IDUnico": 1710709709375,
+      "Nombre": "Cama de agua",
+      "Descripción": "Una cama rellena de agua",
+      "Material": "Agua",
+      "Dimensiones": {
+        "ancho": 1.8,
+        "alto": 0.7,
+        "fondo": 0.5
+      },
+      "Precio": 560
     }
   ],
   "proveedores": [

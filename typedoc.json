@@ -5,7 +5,7 @@
     "./src/database.ts",
     "./src/mueble.ts",
     "./src/proveedor.ts",
-    "./src/stock.ts",
+    "./src/stock.ts"
   ],
   "out": "./docs"
 }

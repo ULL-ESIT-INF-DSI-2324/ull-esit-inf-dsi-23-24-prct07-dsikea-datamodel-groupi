@@ -1,13 +1,8 @@
 import inquirer from "inquirer";
 import db from "./database.js";
-import {
-  Dimensiones,
-  Muebles,
-  ReferenciaMueble,
-} from "./mueble.js";
+import { Dimensiones, Muebles, ReferenciaMueble } from "./mueble.js";
 import { ReferenciaProveedoresClientes } from "./proveedor.js";
-import { Stock} from "./stock.js";
-
+import { Stock } from "./stock.js";
 
 // Crear instancias de las clases Muebles, Proveedores y Clientes
 const muebles = new Muebles([]);
@@ -133,7 +128,7 @@ async function agregarNuevoMueble() {
     parseFloat(nuevoMuebleData.fondo),
   );
 
-  const ID_unico =  Date.now(); // Utilizamos la marca de tiempo como ID único temporal
+  const ID_unico = Date.now(); // Utilizamos la marca de tiempo como ID único temporal
   // Crear nuevo mueble con las dimensiones
   const nuevoMueble: ReferenciaMueble = {
     IDUnico: ID_unico,
@@ -150,28 +145,31 @@ async function agregarNuevoMueble() {
       type: "input",
       name: "cantidad",
       message: "Cantidad de mueble:",
-    } 
-    ]
+    },
+  ]);
+
+  stock.agregarMueble(
+    ID_unico,
+    nuevoMuebleData.nombre,
+    stock_nuevo_mueble.cantidad,
   );
 
-  stock.agregarMueble(ID_unico, nuevoMuebleData.nombre, stock_nuevo_mueble.cantidad);
-
-  db.get('muebles').push(nuevoMueble).write();
+  db.get("muebles").push(nuevoMueble).write();
   console.log("¡Mueble agregado con éxito!");
 }
 
 // Función para eliminar un mueble
 async function eliminarMueble() {
-  const mueblesList = db.get('muebles').value();
+  const mueblesList = db.get("muebles").value();
 
   if (mueblesList.length === 0) {
     console.log("No hay muebles para eliminar.");
     return;
   }
 
-  const choices = mueblesList.map(mueble => ({
+  const choices = mueblesList.map((mueble) => ({
     name: `${mueble.Nombre} - ${mueble.Descripción}`,
-    value: mueble.IDUnico
+    value: mueble.IDUnico,
   }));
 
   const { muebleAEliminar } = await inquirer.prompt([
@@ -183,36 +181,35 @@ async function eliminarMueble() {
     },
   ]);
 
-  db.get('muebles').remove({ IDUnico: muebleAEliminar }).write();
+  db.get("muebles").remove({ IDUnico: muebleAEliminar }).write();
   console.log("¡Mueble eliminado con éxito!");
 }
 
 // Función para buscar un mueble
 async function buscarMueble() {
-  const { tipoBusqueda, criterioBusqueda} =
-    await inquirer.prompt([
-      {
-        type: "list",
-        name: "tipoBusqueda",
-        message: "¿Cómo deseas buscar el mueble?",
-        choices: ["Por nombre", "Por tipo", "Por descripción"],
-      },
-      {
-        type: "input",
-        name: "criterioBusqueda",
-        message: "Introduce el criterio de búsqueda:",
-      },
-      {
-        type: "list",
-        name: "ordenamiento",
-        message: "¿Cómo deseas ordenar los resultados?",
-        choices: [
-          "Alfabéticamente",
-          "Por precio ascendente",
-          "Por precio descendente",
-        ],
-      },
-    ]);
+  const { tipoBusqueda, criterioBusqueda } = await inquirer.prompt([
+    {
+      type: "list",
+      name: "tipoBusqueda",
+      message: "¿Cómo deseas buscar el mueble?",
+      choices: ["Por nombre", "Por tipo", "Por descripción"],
+    },
+    {
+      type: "input",
+      name: "criterioBusqueda",
+      message: "Introduce el criterio de búsqueda:",
+    },
+    {
+      type: "list",
+      name: "ordenamiento",
+      message: "¿Cómo deseas ordenar los resultados?",
+      choices: [
+        "Alfabéticamente",
+        "Por precio ascendente",
+        "Por precio descendente",
+      ],
+    },
+  ]);
 
   let resultados;
   switch (tipoBusqueda) {
@@ -223,7 +220,7 @@ async function buscarMueble() {
         .sortBy("Nombre")
         .value();
       break;
-    
+
     case "Por descripción":
       resultados = db
         .get("muebles")
@@ -240,9 +237,6 @@ async function buscarMueble() {
     console.log("No se encontraron resultados.");
   }
 }
-
-
-
 
 /////////////////////////// Función para gestionar los proveedores //////////////////////////////////////////
 async function gestionarProveedores() {
@@ -302,22 +296,22 @@ async function agregarNuevoProveedor() {
     Direccion: nuevoProveedorData.direccion,
   };
 
-  db.get('proveedores').push(nuevoProveedor).write();
+  db.get("proveedores").push(nuevoProveedor).write();
   console.log("¡Proveedor agregado con éxito!");
 }
 
 // Función para eliminar un proveedor
 async function eliminarProveedor() {
-  const proveedoresList = db.get('proveedores').value();
+  const proveedoresList = db.get("proveedores").value();
 
   if (proveedoresList.length === 0) {
     console.log("No hay proveedores para eliminar.");
     return;
   }
 
-  const choices = proveedoresList.map(proveedor => ({
+  const choices = proveedoresList.map((proveedor) => ({
     name: `${proveedor.Nombre} - ${proveedor.Contacto}`,
-    value: proveedor.IdUnico
+    value: proveedor.IdUnico,
   }));
 
   const { proveedorAEliminar } = await inquirer.prompt([
@@ -329,7 +323,7 @@ async function eliminarProveedor() {
     },
   ]);
 
-  db.get('proveedores').remove({ IdUnico: proveedorAEliminar }).write();
+  db.get("proveedores").remove({ IdUnico: proveedorAEliminar }).write();
   console.log("¡Proveedor eliminado con éxito!");
 }
 
@@ -353,13 +347,22 @@ async function buscarProveedor() {
   let resultados;
   switch (tipoBusqueda) {
     case "Por nombre":
-      resultados = db.get('proveedores').filter({ Nombre: criterioBusqueda }).value();
+      resultados = db
+        .get("proveedores")
+        .filter({ Nombre: criterioBusqueda })
+        .value();
       break;
     case "Por contacto":
-      resultados = db.get('proveedores').filter({ Contacto: criterioBusqueda }).value();
+      resultados = db
+        .get("proveedores")
+        .filter({ Contacto: criterioBusqueda })
+        .value();
       break;
     case "Por dirección":
-      resultados = db.get('proveedores').filter({ Direccion: criterioBusqueda }).value();
+      resultados = db
+        .get("proveedores")
+        .filter({ Direccion: criterioBusqueda })
+        .value();
       break;
   }
 
@@ -425,20 +428,20 @@ async function agregarNuevoCliente() {
     Direccion: nuevoClienteData.direccion,
   };
 
-  db.get('clientes').push(nuevoCliente).write();
+  db.get("clientes").push(nuevoCliente).write();
   console.log("¡Cliente agregado con éxito!");
 }
 async function eliminarCliente() {
-  const clientesList = db.get('clientes').value();
+  const clientesList = db.get("clientes").value();
 
   if (clientesList.length === 0) {
     console.log("No hay clientes para eliminar.");
     return;
   }
 
-  const choices = clientesList.map(cliente => ({
+  const choices = clientesList.map((cliente) => ({
     name: `${cliente.Nombre} - ${cliente.Contacto}`,
-    value: cliente.IdUnico
+    value: cliente.IdUnico,
   }));
 
   const { clienteAEliminar } = await inquirer.prompt([
@@ -450,7 +453,7 @@ async function eliminarCliente() {
     },
   ]);
 
-  db.get('clientes').remove({ IdUnico: clienteAEliminar }).write();
+  db.get("clientes").remove({ IdUnico: clienteAEliminar }).write();
   console.log("¡Cliente eliminado con éxito!");
 }
 
@@ -474,21 +477,28 @@ async function buscarCliente() {
   let resultados;
   switch (tipoBusqueda) {
     case "Por nombre":
-      resultados = db.get('clientes').filter({ Nombre: criterioBusqueda }).value();
+      resultados = db
+        .get("clientes")
+        .filter({ Nombre: criterioBusqueda })
+        .value();
       break;
     case "Por contacto":
-      resultados = db.get('clientes').filter({ Contacto: criterioBusqueda }).value();
+      resultados = db
+        .get("clientes")
+        .filter({ Contacto: criterioBusqueda })
+        .value();
       break;
     case "Por dirección":
-      resultados = db.get('clientes').filter({ Direccion: criterioBusqueda }).value();
+      resultados = db
+        .get("clientes")
+        .filter({ Direccion: criterioBusqueda })
+        .value();
       break;
   }
 
   console.log("Resultados de la búsqueda:");
   console.log(resultados);
 }
-
-
 
 // Función para manejar las opciones relacionadas con el stock
 async function gestionarStock() {
@@ -554,7 +564,12 @@ async function registrarVenta() {
     },
   ]);
 
-  stock.registrarVenta(nombreCliente, mueble, parseInt(cantidad), parseInt(importe));
+  stock.registrarVenta(
+    nombreCliente,
+    mueble,
+    parseInt(cantidad),
+    parseInt(importe),
+  );
   console.log("¡Venta registrada con éxito!");
 }
 
@@ -583,7 +598,12 @@ async function registrarCompra() {
     },
   ]);
 
-  stock.registrarCompra(nombreProveedor, mueble, parseInt(cantidad), parseInt(importe));
+  stock.registrarCompra(
+    nombreProveedor,
+    mueble,
+    parseInt(cantidad),
+    parseInt(importe),
+  );
   console.log("¡Compra registrada con éxito!");
 }
 
@@ -621,7 +641,11 @@ async function consultarInformeVentas() {
     },
   ]);
 
-  const informeVentas = stock.obtenerInformeVentasMueble(nombreMueble, new Date(fechaInicio), new Date(fechaFin));
+  const informeVentas = stock.obtenerInformeVentasMueble(
+    nombreMueble,
+    new Date(fechaInicio),
+    new Date(fechaFin),
+  );
   console.log("Informe de ventas:");
   console.log(informeVentas);
 }
@@ -646,10 +670,13 @@ async function consultarInformeGastos() {
     },
   ]);
 
-  const informeGastos = stock.obtenerInformeGastosProveedor(nombreProveedor, new Date(fechaInicio), new Date(fechaFin));
+  const informeGastos = stock.obtenerInformeGastosProveedor(
+    nombreProveedor,
+    new Date(fechaInicio),
+    new Date(fechaFin),
+  );
   console.log("Informe de gastos:");
   console.log(informeGastos);
 }
 // Iniciar la aplicación
 iniciarAplicacion();
-
