@@ -12,6 +12,8 @@ import { Stock} from "./stock.js";
 // Crear instancias de las clases Muebles, Proveedores y Clientes
 const muebles = new Muebles([]);
 
+// Crear instancia de la clase Stock
+const stock = new Stock([]);
 
 // Función para iniciar la aplicación y mostrar el menú principal
 async function iniciarAplicacion() {
@@ -131,15 +133,28 @@ async function agregarNuevoMueble() {
     parseFloat(nuevoMuebleData.fondo),
   );
 
+  const ID_unico =  Date.now(); // Utilizamos la marca de tiempo como ID único temporal
   // Crear nuevo mueble con las dimensiones
   const nuevoMueble: ReferenciaMueble = {
-    IDUnico: Date.now(), // Utilizamos la marca de tiempo como ID único temporal
+    IDUnico: ID_unico,
     Nombre: nuevoMuebleData.nombre,
     Descripción: nuevoMuebleData.descripcion,
     Material: nuevoMuebleData.material,
     Dimensiones: dimensiones, // Asignar la instancia de Dimensiones
     Precio: parseFloat(nuevoMuebleData.precio),
   };
+
+  // Añadir en el stock cantidad
+  const stock_nuevo_mueble = await inquirer.prompt([
+    {
+      type: "input",
+      name: "cantidad",
+      message: "Cantidad de mueble:",
+    } 
+    ]
+  );
+
+  stock.agregarMueble(ID_unico, nuevoMuebleData.nombre, stock_nuevo_mueble.cantidad);
 
   db.get('muebles').push(nuevoMueble).write();
   console.log("¡Mueble agregado con éxito!");
@@ -473,8 +488,7 @@ async function buscarCliente() {
   console.log(resultados);
 }
 
-// Crear instancia de la clase Stock
-const stock = new Stock([]);
+
 
 // Función para manejar las opciones relacionadas con el stock
 async function gestionarStock() {

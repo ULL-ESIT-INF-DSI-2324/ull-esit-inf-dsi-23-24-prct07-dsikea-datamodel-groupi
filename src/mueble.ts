@@ -81,7 +81,7 @@ interface OrdenarPor {
 /**
  * @brief Clase para ordenar los muebles alfabéticamente
  */
-class Alfabeticamente implements OrdenarPor {
+export class Alfabeticamente implements OrdenarPor {
   sort(muebles: ReferenciaMueble[]): ReferenciaMueble[] {
     return muebles.slice().sort((a, b) => a.Nombre.localeCompare(b.Nombre));
   }
@@ -90,7 +90,7 @@ class Alfabeticamente implements OrdenarPor {
 /**
  * @brief Clase para ordenar los muebles por precio ascendente
  */
-class PrecioAscendente implements OrdenarPor {
+export class PrecioAscendente implements OrdenarPor {
   sort(muebles: ReferenciaMueble[]): ReferenciaMueble[] {
     return muebles.slice().sort((a, b) => a.Precio - b.Precio);
   }
@@ -99,7 +99,7 @@ class PrecioAscendente implements OrdenarPor {
 /**
  * @brief Clase para ordenar los muebles por precio descendente
  */
-class PrecioDescendente implements OrdenarPor {
+export class PrecioDescendente implements OrdenarPor {
   sort(muebles: ReferenciaMueble[]): ReferenciaMueble[] {
     return muebles.slice().sort((a, b) => b.Precio - a.Precio);
   }

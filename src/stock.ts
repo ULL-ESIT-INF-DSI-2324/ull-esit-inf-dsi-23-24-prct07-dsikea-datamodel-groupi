@@ -10,6 +10,7 @@
  * @param MuebleStocks : array de MuebleStock
  */
 export interface MuebleStock {
+    IDUnico: number;
     Nombre: string;
     StockInicial: number;
 }
@@ -44,6 +45,26 @@ export class Stock {
         this.MuebleStocks = MuebleStocks;
         this.transacciones = [];
     }
+
+    /**
+     * @brief Método para agregar un mueble al stock
+     * @param nombre : Nombre del mueble
+     * @param cantidad : Cantidad de muebles a agregar
+     * @returns void
+     */
+    agregarMueble(id_unico: number,nombre: string, cantidad: number): void {
+        this.MuebleStocks.push({ IDUnico: id_unico,Nombre: nombre, StockInicial: cantidad });
+    }
+
+    /**
+     * @brief Método para eliminar un mueble del stock
+     * @param nombre : Nombre del mueble a eliminar
+     * @returns void
+     */
+    eliminarMueble(nombre: string): void {
+        this.MuebleStocks = this.MuebleStocks.filter(m => m.Nombre !== nombre);
+    }
+
     /**
      * @brief Método para agregar una transacción
      * @param transaccion : Transaccion
@@ -75,6 +96,7 @@ export class Stock {
      */
     registrarVenta(nombreCliente: string, MuebleStock: string, cantidad: number, importe: number) {
         const fecha = new Date();
+        
         this.agregarTransaccion({ tipo: 'venta', fecha, MuebleStock, cantidad, importe, cliente: nombreCliente });
     }
     /**
@@ -86,6 +108,7 @@ export class Stock {
      */
     registrarCompra(nombreProveedor: string, MuebleStock: string, cantidad: number, importe: number) {
         const fecha = new Date();
+        
         this.agregarTransaccion({ tipo: 'compra', fecha, MuebleStock, cantidad, importe, proveedor: nombreProveedor });
     }
     /**
