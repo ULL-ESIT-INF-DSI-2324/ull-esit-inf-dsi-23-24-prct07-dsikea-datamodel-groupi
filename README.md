@@ -23,7 +23,24 @@ Aprender más acerca de los módulos de `Inquirer.js` y `Lowdb`, respetar los **
 **Los módulos:
 
 `Inquirer.js`: Es un módulo de Node.js que hace que sea fácil crear interfaces de línea de comandos interactivas. Ofrece muchos tipos de herramientas para crear preguntas, listas, confirmaciones y más, todo ello con una sintaxis simple y flexible
-
+```ts
+@Gith138 ➜ /workspaces/ull-esit-inf-dsi-23-24-prct07-dsikea-datamodel-groupi (main) $ node dist/index.js 
+? ¿Qué acción deseas realizar? Gestionar clientes
+? ¿Qué acción deseas realizar con los clientes? Agregar nuevo cliente
+? Nombre del cliente: Alejandro
+? Información de contacto del cliente: 612345454
+? Dirección del cliente: si
+¡Cliente agregado con éxito!
+? ¿Qué acción deseas realizar? Gestionar Stock
+? ¿Qué acción deseas realizar con el stock? Consultar informe de ventas por mueble y período
+? Nombre del mueble: silla
+? Fecha de inicio (YYYY-MM-DD): 2024-03-12
+? Fecha de fin (YYYY-MM-DD): 2024-03-12
+Informe de ventas:
+[]
+? ¿Qué acción deseas realizar? Salir
+¡Hasta luego!
+```
 `Lowdb`**: 
 
 
